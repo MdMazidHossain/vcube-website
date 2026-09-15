@@ -470,22 +470,87 @@ ul { list-style: none; }
   border-radius: 50%;
 }
 
-.edge-graphic {
+.edge-image-wrap {
   position: absolute;
   inset: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.edge-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.edge-image-wrap:hover .edge-image {
+  transform: scale(1.05);
+}
+
+.edge-image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(6, 182, 212, 0.15));
+  pointer-events: none;
+}
+
+/* Edge floating cards */
+.edge-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  animation: float 6s ease-in-out infinite;
+  z-index: 3;
+}
+
+.edge-card i {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  flex-shrink: 0;
 }
 
-.edge-graphic i {
-  font-size: 180px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 20px 40px rgba(14, 165, 233, 0.3));
-  animation: float 6s ease-in-out infinite;
+.edge-card strong {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.edge-card span {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.edge-card-1 {
+  bottom: 24px;
+  left: -20px;
+  animation-delay: 0s;
+}
+
+.edge-card-2 {
+  top: 24px;
+  right: -20px;
+  animation-delay: 2s;
 }
 
 @keyframes float {
