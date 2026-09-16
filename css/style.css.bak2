@@ -756,28 +756,7 @@ ul { list-style: none; }
 .footer-brand .logo-img {
   height: 40px;
   margin-bottom: 16px;
-  /* No filter — logo stays visible with original colors */
-  filter: none;
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Fallback: If logo has dark text, add a subtle white background */
-.footer-brand .logo {
-  display: inline-block;
-  padding: 6px 12px;
-  background: #ffffff;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
-
-.footer-brand .logo:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.25);
-}
-
-.footer-brand .logo:hover .logo-img {
-  transform: scale(1.04);
+  filter: brightness(0) invert(1);
 }
 
 .footer-brand p {
