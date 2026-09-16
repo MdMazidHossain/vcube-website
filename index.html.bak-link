@@ -283,7 +283,7 @@
       <div class="footer-bottom">
         <p class="footer-copyright">
           © 2026 VCUBE Soft and Tech Limited. All rights reserved. 
-          <span class="developer-credit">· Md Mazid Hossain</span>
+          <span class="developer-credit">· <a href="https://github.com/mazid-dev" target="_blank" rel="noreferrer">Md Mazid Hossain</a></span>
         </p>
         
         <div class="footer-legal">
