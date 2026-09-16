@@ -1332,3 +1332,139 @@ ul { list-style: none; }
     height: 38px;
   }
 }
+
+/* ═══════════════════════════════════════════
+   HOME PAGE — CONTACT CTA BUTTON
+   ═══════════════════════════════════════════ */
+
+.contact-cta-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.contact-cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 640px;
+  width: 100%;
+  padding: 28px 36px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+.contact-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary-light));
+}
+
+.contact-cta-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.08), transparent);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.contact-cta-btn:hover::after { left: 100%; }
+
+.contact-cta-btn:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: 
+    0 24px 48px rgba(14, 165, 233, 0.2),
+    0 0 0 1px rgba(14, 165, 233, 0.1);
+}
+
+.contact-cta-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 26px;
+  flex-shrink: 0;
+  box-shadow: 0 12px 28px rgba(14, 165, 233, 0.35);
+  transition: all 0.4s;
+}
+
+.contact-cta-btn:hover .contact-cta-icon {
+  transform: rotate(-8deg) scale(1.08);
+  box-shadow: 0 16px 36px rgba(14, 165, 233, 0.5);
+}
+
+.contact-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  text-align: left;
+}
+
+.contact-cta-text strong {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+.contact-cta-text small {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.contact-cta-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(14, 165, 233, 0.1);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: all 0.4s;
+}
+
+.contact-cta-btn:hover .contact-cta-arrow {
+  background: var(--primary);
+  color: #fff;
+  transform: translateX(6px);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+}
+
+@media (max-width: 600px) {
+  .contact-cta-btn {
+    padding: 22px 24px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .contact-cta-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
+  .contact-cta-text strong { font-size: 17px; }
+  .contact-cta-text small { font-size: 12px; }
+  .contact-cta-arrow { width: 38px; height: 38px; }
+}
