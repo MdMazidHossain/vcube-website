@@ -173,50 +173,23 @@
         </p>
       </div>
 
-      <div class="cv-options-wrap">
-        <!-- Option 1: Google Form -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdSTPshbBg60llwsU6dkdQ2GS3k0Eei-Ls_svC4j-k6yAOx4g/viewform"
-           target="_blank"
-           rel="noreferrer"
-           class="cv-option-card cv-option-form">
-          <div class="cv-option-icon">
+      <div class="apply-cta-wrap">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdSTPshbBg60llwsU6dkdQ2GS3k0Eei-Ls_svC4j-k6yAOx4g/viewform" 
+           target="_blank" 
+           rel="noreferrer" 
+           class="apply-cta-btn">
+          <span class="apply-cta-icon">
             <i class="fas fa-file-circle-plus"></i>
-          </div>
-          <div class="cv-option-content">
-            <h3>Open Application Form</h3>
-            <p>Fill out our quick form and upload your CV.</p>
-            <span class="cv-option-btn">
-              Open Form <i class="fas fa-arrow-right"></i>
-            </span>
-          </div>
-          <div class="cv-option-arrow">
-            <i class="fas fa-external-link-alt"></i>
-          </div>
-        </a>
-
-        <!-- Option 2: Email -->
-        <a href="mailto:hr@vcube.xyz?subject=CV Submission — VCUBE"
-           class="cv-option-card cv-option-email">
-          <div class="cv-option-icon">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div class="cv-option-content">
-            <h3>Submit Your CV</h3>
-            <p>Send your CV directly to our HR team.</p>
-            <span class="cv-option-btn">
-              hr@vcube.xyz <i class="fas fa-arrow-right"></i>
-            </span>
-          </div>
-          <div class="cv-option-arrow">
-            <i class="fas fa-paper-plane"></i>
-          </div>
+          </span>
+          <span class="apply-cta-text">
+            <strong>Open Application Form</strong>
+            <small>Submit your CV — takes less than 2 minutes</small>
+          </span>
+          <span class="apply-cta-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </span>
         </a>
       </div>
-
-      <p class="cv-options-note">
-        <i class="fas fa-info-circle"></i>
-        Both options are monitored by our HR team — CVs are reviewed for future openings.
-      </p>
     </div>
   </section>
 
