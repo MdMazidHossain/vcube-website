@@ -192,8 +192,14 @@
           <div class="edge-image-wrap">
             <img src="assets/images/vcube-office.jpg" alt="VCUBE Office Workspace" class="edge-image">
           </div>
-          
-          
+          <div class="edge-card edge-card-1">
+            <i class="fas fa-users"></i>
+            <div><strong>Open Office</strong><span>Workspace</span></div>
+          </div>
+          <div class="edge-card edge-card-2">
+            <i class="fas fa-globe"></i>
+            <div><strong>Global</strong><span>Operations</span></div>
+          </div>
         </div>
       </div>
     </div>
