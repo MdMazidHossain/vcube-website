@@ -685,6 +685,32 @@
       .cv-option-card { flex-direction: column; text-align: center; gap: 16px; }
       .cv-option-arrow { display: none; }
     }
+  
+    /* Footer Social Icons */
+    .footer-contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-email {
+      display: inline-flex;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      font-size: 13.5px;
+      transition: color 0.25s ease;
+      padding: 0;
+    }
+    .footer-email:hover { color: #41C9E2; padding-left: 0; }
+    .footer-email i { color: #41C9E2; margin-right: 8px; font-size: 13px; }
+    .footer-social { display: flex; gap: 18px; margin-top: 16px; align-items: center; }
+    .social-icon { display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); font-size: 20px; text-decoration: none; transition: all 0.25s ease; background: transparent; border: none; padding: 0; line-height: 1; }
+    .social-icon:hover { color: #41C9E2; transform: translateY(-2px); }
+    .social-icon.social-fb:hover { color: #1877f2; }
+    .social-icon.social-li:hover { color: #0a66c2; }
+
   </style>
 </head>
 <body>
@@ -919,6 +945,14 @@
         <div class="footer-col">
           <h4>Connect</h4>
           <a href="mailto:info@vcube.xyz"><i class="fas fa-envelope"></i> info@vcube.xyz</a>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/vcubexyz" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon social-fb">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/vcubesoftandtech/home/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon social-li">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
