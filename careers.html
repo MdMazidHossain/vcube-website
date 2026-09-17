@@ -3,21 +3,693 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Careers Join VCUBE Soft and Tech Limited</title>
+  <title>Careers — Join VCUBE Soft and Tech Limited</title>
 
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico?v=10">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png?v=10">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png?v=10">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png?v=10">
   <meta name="description" content="A Brighter Tomorrow, Together. At VCUBE, we believe in meaningful work, continuous learning, and opportunities to grow.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #0B192C;
+      --accent: #008DDA;
+      --accent-light: #41C9E2;
+      --bg-light: #F8FAFC;
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --white: #ffffff;
+      --gradient-1: linear-gradient(135deg, #008DDA 0%, #41C9E2 100%);
+      --gradient-2: linear-gradient(135deg, #0B192C 0%, #1E3A5F 100%);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+      --shadow-lg: 0 20px 50px rgba(0,0,0,0.1);
+      --shadow-glow: 0 8px 32px rgba(0, 141, 218, 0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      background: #fff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', 'Inter', sans-serif; letter-spacing: -0.02em; }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: var(--gradient-1); border-radius: 5px; }
+
+    /* ============ NAVBAR ============ */
+    header.navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: #ffffff;
+      border-bottom: 1px solid #E2E8F0;
+      transition: all 0.3s ease;
+    }
+    header.navbar.scrolled {
+      box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+    }
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      background: #ffffff;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      background: transparent;
+    }
+    .logo-img {
+      height: 44px;
+      width: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover .logo-img { transform: scale(1.03); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      font-size: 15px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--accent); background: rgba(0, 141, 218, 0.06); }
+    .nav-links a.active { color: var(--accent); background: rgba(0, 141, 218, 0.08); }
+
+    /* Contact Us gradient CTA button (like home) */
+    .cta-nav-btn {
+      background: var(--gradient-1) !important;
+      color: #fff !important;
+      padding: 11px 24px !important;
+      border-radius: 10px !important;
+      font-weight: 600 !important;
+      box-shadow: var(--shadow-glow);
+      transition: all 0.3s ease !important;
+    }
+    .cta-nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 141, 218, 0.4) !important;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-size: 22px;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    /* ============ CAREERS HERO (LEFT-ALIGNED like home) ============ */
+    .careers-hero {
+      position: relative;
+      height: 88vh;
+      min-height: 640px;
+      overflow: hidden;
+      color: #fff;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-slides { position: absolute; inset: 0; z-index: 0; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transform: scale(1.05);
+      transition: opacity 1s ease, transform 8s ease;
+    }
+    .hero-slide.active { opacity: 1; transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(0, 141, 218, 0.3) 0%, transparent 50%),
+        linear-gradient(105deg, rgba(5, 15, 30, 0.94) 0%, rgba(5, 20, 40, 0.82) 40%, rgba(5, 25, 50, 0.55) 70%, rgba(5, 25, 50, 0.35) 100%);
+    }
+
+    .hero-bg-grid {
+      position: absolute; inset: 0; z-index: 1;
+      background-image:
+        linear-gradient(rgba(65, 201, 226, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(65, 201, 226, 0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    }
+
+    .glow {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: 0.35; z-index: 1; pointer-events: none;
+    }
+    .glow-1 { width: 400px; height: 400px; background: #008DDA; top: -100px; left: -100px; animation: float1 8s ease-in-out infinite; }
+    .glow-2 { width: 350px; height: 350px; background: #667eea; bottom: -100px; right: -100px; animation: float2 10s ease-in-out infinite; }
+    @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(50px, 50px); } }
+    @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-50px, -50px); } }
+
+    /* Left-aligned hero container — same as home */
+    .careers-hero .container {
+      position: relative; z-index: 3;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 120px 28px 80px;
+      width: 100%;
+    }
+
+    .careers-hero-content {
+      max-width: 780px;
+      text-align: left;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .careers-tagline {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 9px 22px;
+      background: rgba(65, 201, 226, 0.12);
+      border: 1px solid rgba(65, 201, 226, 0.35);
+      border-radius: 100px;
+      font-size: 13px; font-weight: 600;
+      color: #41C9E2; letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    .careers-title {
+      font-size: clamp(40px, 5vw, 66px);
+      line-height: 1.08;
+      margin-bottom: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #41C9E2 0%, #008DDA 50%, #667eea 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+    }
+
+    .careers-desc {
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 640px;
+      margin-bottom: 32px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 12px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-primary {
+      background: var(--gradient-1); color: #fff;
+      box-shadow: 0 10px 30px rgba(0, 141, 218, 0.4);
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(0, 141, 218, 0.5); }
+    .btn-primary i { transition: transform 0.3s ease; }
+    .btn-primary:hover i { transform: translateX(4px); }
+
+    /* Hero arrows + dots */
+    .hero-arrow {
+      position: absolute; z-index: 5; top: 50%; transform: translateY(-50%);
+      width: 52px; height: 52px;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(10px);
+      color: #fff; font-size: 26px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .hero-arrow:hover {
+      background: var(--gradient-1); border-color: transparent;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 10px 30px rgba(0, 141, 218, 0.5);
+    }
+    .hero-arrow.prev { left: 30px; }
+    .hero-arrow.next { right: 30px; }
+
+    .hero-dots {
+      position: absolute; z-index: 5; bottom: 40px; left: 50%;
+      transform: translateX(-50%); display: flex; gap: 12px;
+    }
+    .hero-dot {
+      width: 32px; height: 4px; border-radius: 4px; border: none;
+      background: rgba(255, 255, 255, 0.3); cursor: pointer;
+      transition: all 0.4s ease;
+    }
+    .hero-dot.active {
+      width: 48px; background: var(--gradient-1);
+      box-shadow: 0 0 20px rgba(65, 201, 226, 0.6);
+    }
+
+    /* ============ SECTIONS ============ */
+    section { padding: 110px 28px; position: relative; }
+    .container { max-width: 1280px; margin: 0 auto; }
+
+    .section-header { text-align: center; margin-bottom: 70px; }
+    .section-header.center { text-align: center; }
+    .section-tag {
+      display: inline-block; padding: 7px 18px;
+      background: rgba(0, 141, 218, 0.08); color: var(--accent);
+      border-radius: 100px; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 18px;
+    }
+    .section-title {
+      font-size: clamp(30px, 3.8vw, 46px); color: var(--primary);
+      font-weight: 700; margin-bottom: 18px; letter-spacing: -0.03em; line-height: 1.15;
+    }
+    .section-subtitle {
+      color: var(--text-muted); font-size: 17px;
+      max-width: 640px; margin: 0 auto; line-height: 1.65;
+    }
+
+    /* ============ OPEN POSITIONS ============ */
+    .positions {
+      background:
+        radial-gradient(circle at 0% 0%, rgba(0, 141, 218, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(102, 126, 234, 0.04) 0%, transparent 50%),
+        var(--bg-light);
+    }
+
+    .positions-list { display: flex; flex-direction: column; gap: 20px; max-width: 1050px; margin: 0 auto; }
+
+    .position-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 24px;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .position-card::before {
+      content: ''; position: absolute; top: 0; left: 0; bottom: 0;
+      width: 4px; background: var(--gradient-1);
+      transform: scaleY(0); transform-origin: top;
+      transition: transform 0.4s ease;
+    }
+    .position-card:hover {
+      transform: translateX(6px);
+      box-shadow: 0 20px 50px rgba(0, 141, 218, 0.15);
+      border-color: rgba(0, 141, 218, 0.2);
+    }
+    .position-card:hover::before { transform: scaleY(1); }
+
+    .pos-icon {
+      width: 60px; height: 60px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(0, 141, 218, 0.1) 0%, rgba(65, 201, 226, 0.1) 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      font-size: 24px;
+      flex-shrink: 0;
+      transition: all 0.4s ease;
+    }
+    .position-card:hover .pos-icon { transform: scale(1.08) rotate(-3deg); }
+
+    .pos-content h3 {
+      font-size: 21px;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .pos-meta {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      color: var(--text-muted);
+      font-size: 13.5px;
+    }
+    .pos-meta span {
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .pos-meta i { color: var(--accent); font-size: 12px; }
+
+    .pos-apply {
+      padding: 14px 26px;
+      background: var(--gradient-1);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(0, 141, 218, 0.3);
+      white-space: nowrap;
+    }
+    .pos-apply:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(0, 141, 218, 0.4);
+    }
+    .pos-apply i { font-size: 12px; transition: transform 0.3s ease; }
+    .pos-apply:hover i { transform: translateX(3px); }
+
+    /* ============ WHY VCUBE ============ */
+    .why-vcube { background: #fff; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .why-card {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .why-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--gradient-1);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .why-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0, 141, 218, 0.15);
+      border-color: rgba(0, 141, 218, 0.2);
+    }
+    .why-card:hover::before { transform: scaleX(1); }
+
+    .why-icon {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(0, 141, 218, 0.1) 0%, rgba(65, 201, 226, 0.1) 100%);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 22px;
+      font-size: 26px;
+      color: var(--accent);
+      transition: all 0.4s ease;
+    }
+    .why-card:hover .why-icon { transform: scale(1.1) rotate(-5deg); }
+
+    .why-card h3 {
+      font-size: 19px;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .why-card p {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+
+    /* ============ CV SUBMISSION ============ */
+    .apply-section {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(0, 141, 218, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 0% 100%, rgba(102, 126, 234, 0.05) 0%, transparent 40%),
+        var(--bg-light);
+    }
+
+    .cv-options-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto 24px;
+    }
+
+    .cv-option-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 32px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+    .cv-option-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0, 141, 218, 0.15);
+      border-color: rgba(0, 141, 218, 0.25);
+    }
+
+    .cv-option-icon {
+      position: relative;
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      background: var(--gradient-1);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 24px;
+      flex-shrink: 0;
+      box-shadow: 0 10px 24px rgba(0, 141, 218, 0.35);
+      transition: transform 0.35s ease;
+    }
+    .cv-option-card:hover .cv-option-icon { transform: scale(1.08) rotate(-5deg); }
+
+    .cv-option-content { position: relative; flex-grow: 1; }
+    .cv-option-content h3 {
+      font-size: 18px;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .cv-option-content p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+      line-height: 1.55;
+    }
+    .cv-option-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 13.5px;
+    }
+    .cv-option-btn i { transition: transform 0.3s ease; }
+    .cv-option-card:hover .cv-option-btn i { transform: translateX(4px); }
+
+    .cv-option-arrow {
+      position: relative;
+      color: rgba(0, 141, 218, 0.3);
+      font-size: 18px;
+      transition: all 0.35s ease;
+    }
+    .cv-option-card:hover .cv-option-arrow {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .cv-options-note {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .cv-options-note i { color: var(--accent); }
+
+    /* ============ FOOTER ============ */
+    footer.footer {
+      background: var(--gradient-2);
+      color: #94A3B8;
+      padding: 70px 28px 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    footer.footer::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(65, 201, 226, 0.5), transparent);
+    }
+
+    .footer-grid {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 50px; padding-bottom: 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-brand .logo {
+      display: inline-flex;
+      margin-bottom: 18px;
+      background: transparent;
+    }
+    .footer-brand .logo-img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    .footer-brand p {
+      color: rgba(255, 255, 255, 0.6); font-size: 14px;
+      line-height: 1.7; max-width: 320px;
+    }
+    .footer-col h4 {
+      color: #fff; font-size: 15px; font-weight: 600;
+      margin-bottom: 20px; position: relative; padding-bottom: 12px;
+    }
+    .footer-col h4::after {
+      content: ''; position: absolute; left: 0; bottom: 0;
+      width: 32px; height: 2px; background: var(--gradient-1); border-radius: 2px;
+    }
+    .footer-col a {
+      display: block; color: rgba(255, 255, 255, 0.65);
+      text-decoration: none; font-size: 14px; padding: 7px 0;
+      transition: all 0.25s ease;
+    }
+    .footer-col a:hover { color: #41C9E2; padding-left: 6px; }
+    .footer-col a i { color: #41C9E2; margin-right: 8px; font-size: 13px; }
+
+    .footer-bottom {
+      max-width: 1280px; margin: 30px auto 0;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-copyright {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+      margin: 0;
+    }
+    .developer-credit {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+    .footer-legal { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-legal a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.25s ease;
+    }
+    .footer-legal a:hover { color: #41C9E2; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 992px) {
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      section { padding: 80px 24px; }
+      .careers-hero { min-height: 600px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: #fff; padding: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        border-top: 1px solid var(--border);
+      }
+      .nav-links.open a { padding: 12px 16px; }
+      .hamburger { display: block; }
+      .careers-hero { min-height: 580px; height: auto; padding: 20px 0 60px; }
+      .careers-hero .container { padding: 130px 22px 40px; }
+      .careers-title { font-size: 36px; }
+      .careers-desc { font-size: 15.5px; }
+      .hero-arrow { width: 42px; height: 42px; font-size: 22px; }
+      .hero-arrow.prev { left: 14px; }
+      .hero-arrow.next { right: 14px; }
+      .position-card { grid-template-columns: 1fr; gap: 20px; padding: 26px; }
+      .pos-apply { justify-self: start; }
+      .why-grid { grid-template-columns: 1fr; }
+      .cv-options-wrap { grid-template-columns: 1fr; }
+      .cv-option-card { padding: 24px; }
+      section { padding: 70px 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; padding-bottom: 30px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-legal { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .careers-title { font-size: 30px; }
+      .careers-tagline { font-size: 11px; padding: 7px 16px; }
+      .btn { padding: 14px 24px; font-size: 14px; }
+      .pos-icon, .why-icon, .cv-option-icon { width: 54px; height: 54px; font-size: 20px; }
+      .pos-content h3 { font-size: 18px; }
+      .cv-option-card { flex-direction: column; text-align: center; gap: 16px; }
+      .cv-option-arrow { display: none; }
+    }
+  </style>
 </head>
 <body>
 
+  <!-- HEADER — Same as Home (Contact Us = gradient, no Get Started) -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo" aria-label="VCUBE Home">
@@ -27,43 +699,58 @@
         <a href="index.html#solutions">Solutions</a>
         <a href="index.html#edge">About</a>
         <a href="careers.html" class="active">Careers</a>
-        <a href="index.html#contact">Contact Us</a>
+        <a href="index.html#contact" class="cta-nav-btn">Contact Us</a>
       </nav>
-      <a href="index.html#contact" class="btn btn-primary nav-cta">
-        Get Started <i class="fas fa-arrow-right"></i>
-      </a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <i class="fas fa-bars"></i>
       </button>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ============ CAREERS HERO (Left-aligned like home) ============ -->
   <section class="careers-hero">
-    <div class="hero-bg">
-      <div class="hero-grid"></div>
-      <div class="glow glow-1"></div>
-      <div class="glow glow-2"></div>
+
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image:url('assets/images/hero1.jpg');"></div>
+      <div class="hero-slide" style="background-image:url('assets/images/hero2.jpg');"></div>
+      <div class="hero-slide" style="background-image:url('assets/images/hero3.jpg');"></div>
     </div>
-    <div class="container" style="position: relative; z-index: 2;">
-      <div class="careers-tagline">People / Ideas / Impact</div>
-      <h1 class="careers-title">
-        A Brighter Tomorrow,<br>
-        <span class="gradient-text">Together.</span>
-      </h1>
-      <p class="careers-desc">
-        At Vcube, we believe in meaningful work, continuous learning and opportunities
-        to grow — for a better tomorrow.
-      </p>
-      <div class="hero-buttons" style="justify-content: center; margin-top: 32px;">
-        <a href="#open-positions" class="btn btn-primary">
-          View Open Positions <i class="fas fa-arrow-right"></i>
-        </a>
+
+    <div class="hero-overlay"></div>
+    <div class="hero-bg-grid"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <div class="container">
+      <div class="careers-hero-content">
+        <div class="careers-tagline">People / Ideas / Impact</div>
+        <h1 class="careers-title">
+          A Brighter Tomorrow,<br>
+          <span class="gradient-text">Together.</span>
+        </h1>
+        <p class="careers-desc">
+          At VCUBE, we believe in meaningful work, continuous learning and opportunities
+          to grow — for a better tomorrow.
+        </p>
+        <div class="hero-buttons">
+          <a href="#open-positions" class="btn btn-primary">
+            View Open Positions <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
       </div>
+    </div>
+
+    <button class="hero-arrow prev" type="button" aria-label="Previous slide">‹</button>
+    <button class="hero-arrow next" type="button" aria-label="Next slide">›</button>
+
+    <div class="hero-dots" aria-label="Hero slides">
+      <button class="hero-dot active" type="button" aria-label="Slide 1"></button>
+      <button class="hero-dot" type="button" aria-label="Slide 2"></button>
+      <button class="hero-dot" type="button" aria-label="Slide 3"></button>
     </div>
   </section>
 
-  <!-- OPEN POSITIONS -->
+  <!-- ============ OPEN POSITIONS ============ -->
   <section class="positions" id="open-positions">
     <div class="container">
       <div class="section-header center">
@@ -71,56 +758,50 @@
         <h2 class="section-title">Current Opportunities</h2>
         <p class="section-subtitle">
           Join a team that values curiosity, craftsmanship and real-world impact.
-          Explore our current openings and find your place at Vcube.
+          Explore our current openings and find your place at VCUBE.
         </p>
       </div>
 
       <div class="positions-list">
-        <!-- Position 1 -->
         <div class="position-card">
           <div class="pos-icon"><i class="fas fa-user-tie"></i></div>
           <div class="pos-content">
-            <h3>Associate — Admin & People Op</h3>
+            <h3>Associate — Admin &amp; People Op</h3>
             <div class="pos-meta">
-              <span><i class="fas fa-building"></i> Vcube Soft And Tech</span>
+              <span><i class="fas fa-building"></i> VCUBE Soft And Tech</span>
               <span><i class="fas fa-location-dot"></i> Dhaka, Bangladesh</span>
               <span><i class="fas fa-clock"></i> Full-time</span>
             </div>
-            
           </div>
           <a href="https://bdjobs.com/h/details/1527850?ln=1" target="_blank" rel="noreferrer" class="pos-apply">
             Apply <i class="fas fa-external-link-alt"></i>
           </a>
         </div>
 
-        <!-- Position 2 -->
         <div class="position-card">
           <div class="pos-icon"><i class="fas fa-users-gear"></i></div>
           <div class="pos-content">
             <h3>Executive — HR And Admin</h3>
             <div class="pos-meta">
-              <span><i class="fas fa-building"></i> Vcube Soft And Tech</span>
+              <span><i class="fas fa-building"></i> VCUBE Soft And Tech</span>
               <span><i class="fas fa-location-dot"></i> Dhaka, Bangladesh</span>
               <span><i class="fas fa-clock"></i> Full-time</span>
             </div>
-            
           </div>
           <a href="BdJOBS_LINK_HERE" target="_blank" rel="noreferrer" class="pos-apply">
             Apply <i class="fas fa-external-link-alt"></i>
           </a>
         </div>
 
-        <!-- Position 3 -->
         <div class="position-card">
           <div class="pos-icon"><i class="fas fa-graduation-cap"></i></div>
           <div class="pos-content">
             <h3>Internship Program</h3>
             <div class="pos-meta">
-              <span><i class="fas fa-building"></i> Vcube Soft And Tech</span>
+              <span><i class="fas fa-building"></i> VCUBE Soft And Tech</span>
               <span><i class="fas fa-location-dot"></i> Dhaka, Bangladesh</span>
               <span><i class="fas fa-clock"></i> Internship</span>
             </div>
-            
           </div>
           <a href="https://forms.gle/E1bxYBF3unY2Efm99" target="_blank" rel="noreferrer" class="pos-apply">
             Apply <i class="fas fa-external-link-alt"></i>
@@ -130,11 +811,11 @@
     </div>
   </section>
 
-  <!-- WHY VCUBE -->
+  <!-- ============ WHY VCUBE ============ -->
   <section class="why-vcube">
     <div class="container">
       <div class="section-header center">
-        <span class="section-tag">Why Vcube</span>
+        <span class="section-tag">Why VCUBE</span>
         <h2 class="section-title">Meaningful Work. Real Growth.</h2>
         <p class="section-subtitle">
           We create an environment where people can do their best work. Whether you're
@@ -165,8 +846,7 @@
     </div>
   </section>
 
-  <!-- CV SUBMISSION -->
-  <!-- ═══ CV SUBMISSION ═══ -->
+  <!-- ============ CV SUBMISSION ============ -->
   <section class="apply-section" id="apply">
     <div class="container">
       <div class="section-header center">
@@ -178,14 +858,10 @@
       </div>
 
       <div class="cv-options-wrap">
-        <!-- Option 1: Google Form -->
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdSTPshbBg60llwsU6dkdQ2GS3k0Eei-Ls_svC4j-k6yAOx4g/viewform"
-           target="_blank"
-           rel="noreferrer"
+           target="_blank" rel="noreferrer"
            class="cv-option-card cv-option-form">
-          <div class="cv-option-icon">
-            <i class="fas fa-file-circle-plus"></i>
-          </div>
+          <div class="cv-option-icon"><i class="fas fa-file-circle-plus"></i></div>
           <div class="cv-option-content">
             <h3>Open Application Form</h3>
             <p>Fill out our quick form and upload your CV.</p>
@@ -193,17 +869,12 @@
               Open Form <i class="fas fa-arrow-right"></i>
             </span>
           </div>
-          <div class="cv-option-arrow">
-            <i class="fas fa-external-link-alt"></i>
-          </div>
+          <div class="cv-option-arrow"><i class="fas fa-external-link-alt"></i></div>
         </a>
 
-        <!-- Option 2: Email -->
         <a href="mailto:hr@vcube.xyz?subject=CV Submission — VCUBE"
            class="cv-option-card cv-option-email">
-          <div class="cv-option-icon">
-            <i class="fas fa-envelope"></i>
-          </div>
+          <div class="cv-option-icon"><i class="fas fa-envelope"></i></div>
           <div class="cv-option-content">
             <h3>Submit Your CV</h3>
             <p>Send your CV directly to our HR team.</p>
@@ -211,9 +882,7 @@
               hr@vcube.xyz <i class="fas fa-arrow-right"></i>
             </span>
           </div>
-          <div class="cv-option-arrow">
-            <i class="fas fa-paper-plane"></i>
-          </div>
+          <div class="cv-option-arrow"><i class="fas fa-paper-plane"></i></div>
         </a>
       </div>
 
@@ -224,6 +893,7 @@
     </div>
   </section>
 
+  <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -231,13 +901,14 @@
           <a href="index.html" class="logo">
             <img src="assets/images/vcube-logo.png" alt="VCUBE" class="logo-img">
           </a>
-          <p>Unified BPO & digital solutions engineered for global scale.</p>
+          <p>Unified BPO &amp; digital solutions engineered for global scale.</p>
         </div>
         <div class="footer-col">
           <h4>Solutions</h4>
           <a href="index.html#solutions">Back Office</a>
           <a href="index.html#solutions">Data Entry</a>
           <a href="index.html#solutions">SEO</a>
+          <a href="index.html#solutions">3D Visualization</a>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
@@ -252,14 +923,88 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-copyright">
-          © 2026 VCUBE Soft and Tech Limited. All rights reserved. 
+          © 2026 VCUBE Soft and Tech Limited. All rights reserved.
           <span class="developer-credit">· Md Mazid Hossain</span>
         </p>
-        
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- ============ SCRIPTS ============ -->
+  <script>
+    (() => {
+      const slides = [...document.querySelectorAll('.hero-slide')];
+      const dots = [...document.querySelectorAll('.hero-dot')];
+      const prev = document.querySelector('.hero-arrow.prev');
+      const next = document.querySelector('.hero-arrow.next');
+      if (!slides.length) return;
+      let current = 0, timer;
+
+      function showSlide(i) {
+        current = (i + slides.length) % slides.length;
+        slides.forEach((x, n) => x.classList.toggle('active', n === current));
+        dots.forEach((x, n) => x.classList.toggle('active', n === current));
+      }
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(() => showSlide(current + 1), 6500);
+      }
+      prev.addEventListener('click', () => { showSlide(current - 1); restart(); });
+      next.addEventListener('click', () => { showSlide(current + 1); restart(); });
+      dots.forEach((d, i) => d.addEventListener('click', () => { showSlide(i); restart(); }));
+      showSlide(0);
+      restart();
+    })();
+
+    (() => {
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      });
+    })();
+
+    (() => {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      if (!hamburger || !navLinks) return;
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+    })();
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    (() => {
+      const els = document.querySelectorAll('.position-card, .why-card, .cv-option-card');
+      els.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      });
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
 </body>
 </html>
