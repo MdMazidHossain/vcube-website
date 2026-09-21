@@ -1,0 +1,71 @@
+
+/* VCUBE Footer Text Logo */
+.footer-logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 7px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.footer-logo span {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+}
+
+.footer-logo small {
+    font-size: 16px;
+    font-weight: 600;
+    color: #6ec8ff;
+    letter-spacing: 0.3px;
+}
+
+.footer-logo:hover span {
+    color: #6ec8ff;
+}
+
+.footer-logo:hover small {
+    color: #ffffff;
+}
+
+
+/* FINAL VCUBE FOOTER LOGO OVERRIDE */
+.footer-logo {
+    display: inline-flex !important;
+    align-items: baseline !important;
+    gap: 7px !important;
+    text-decoration: none !important;
+    border: none !important;
+    font-weight: 700 !important;
+}
+
+.footer-logo span {
+    font-size: 27px !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.5px !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.footer-logo small {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #6ec8ff !important;
+    letter-spacing: 0.3px !important;
+    text-decoration: none !important;
+}
+
+.footer-logo:hover {
+    text-decoration: none !important;
+}
+
+.footer-logo:hover span {
+    color: #6ec8ff !important;
+}
+
+.footer-logo:hover small {
+    color: #ffffff !important;
+}
+

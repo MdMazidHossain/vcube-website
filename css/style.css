@@ -1768,3 +1768,286 @@ ul { list-style: none; }
     padding: 14px 20px;
   }
 }
+
+/* ═══════════════════════════════════════════
+   FOOTER — VCUBE Text (Bold White, Modern)
+   ═══════════════════════════════════════════ */
+
+.footer-brand .footer-logo-text,
+.footer-logo-text {
+  display: block;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 12px;
+  background: none;
+  text-decoration: none;
+  border: none;
+}
+
+/* Gradient underline accent */
+.footer-brand .footer-logo-text::after,
+.footer-logo-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 42px;
+  height: 3px;
+  background: linear-gradient(90deg, #008DDA, #41C9E2);
+  border-radius: 3px;
+}
+
+/* Footer brand paragraphs */
+.footer-brand p {
+  font-size: 14px;
+  color: rgba(226, 232, 240, 0.65);
+  max-width: 320px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════
+   HERO — Stronger Overlay for Better Readability
+   ═══════════════════════════════════════════ */
+
+.hero-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(5, 19, 35, 0.96) 0%,
+    rgba(5, 19, 35, 0.88) 30%,
+    rgba(5, 19, 35, 0.62) 60%,
+    rgba(5, 19, 35, 0.35) 100%
+  ) !important;
+}
+
+/* Optional: boost text shadow for readability */
+.hero-content h1 {
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+.hero-content p {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Ribbon also darker for contrast */
+.ribbon {
+  background: rgba(3, 21, 38, 0.96) !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 700px) {
+  .footer-brand .footer-logo-text,
+  .footer-logo-text {
+    font-size: 22px;
+    letter-spacing: 2.5px;
+  }
+}
+
+
+/* ═══════════════════════════════════════════
+   FOOTER VCUBE TEXT — FORCE WHITE + BOLD
+   ═══════════════════════════════════════════ */
+
+.footer-logo-text,
+.footer-brand .footer-logo-text,
+footer .footer-logo-text,
+h3.footer-logo-text {
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  font-size: 28px !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  background: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-decoration: none !important;
+  display: block !important;
+  margin-bottom: 18px !important;
+  padding-bottom: 14px !important;
+  position: relative !important;
+  font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+}
+
+/* Gradient underline accent (cyan) */
+.footer-logo-text::after,
+.footer-brand .footer-logo-text::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 48px !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #008DDA, #41C9E2) !important;
+  border-radius: 3px !important;
+  display: block !important;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .footer-logo-text,
+  .footer-brand .footer-logo-text {
+    font-size: 24px !important;
+    letter-spacing: 3px !important;
+  }
+}
+
+
+/* ═══════════════════════════════════════════
+   VCUBE TEXT — ULTIMATE OVERRIDE
+   ═══════════════════════════════════════════ */
+
+footer h3,
+footer .footer-logo-text,
+.footer-brand h3,
+.footer-brand .footer-logo-text,
+footer .footer-brand h3,
+.footer-brand > h3,
+h3.footer-logo-text {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-weight: 900 !important;
+  font-size: 28px !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 14px !important;
+  position: relative !important;
+  font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Also handle if it's inside a link */
+footer a,
+.footer-brand a {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* Underline accent */
+footer h3::after,
+.footer-brand h3::after,
+.footer-brand .footer-logo-text::after,
+h3.footer-logo-text::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 48px !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #008DDA, #41C9E2) !important;
+  border-radius: 3px !important;
+  display: block !important;
+}
+
+
+/* ULTIMATE OVERRIDE — VCUBE FOOTER */
+footer h3,
+footer .footer-logo-text,
+.footer-brand h3,
+.footer-brand .footer-logo-text {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-weight: 900 !important;
+  font-size: 28px !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 14px !important;
+  position: relative !important;
+}
+
+footer h3::after,
+.footer-brand h3::after,
+.footer-brand .footer-logo-text::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 48px !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #008DDA, #41C9E2) !important;
+  border-radius: 3px !important;
+}
+
+
+/* ═══════════════════════════════════════════
+   FOOTER VCUBE — MATCH REAL HTML CLASS
+   HTML class: "footer-logo"
+   ═══════════════════════════════════════════ */
+
+.footer-brand .footer-logo,
+.footer-brand a.footer-logo,
+footer .footer-brand .footer-logo,
+footer .footer-brand a.footer-logo {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-weight: 900 !important;
+  font-size: 28px !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+  margin: 0 0 16px 0 !important;
+  padding: 0 0 14px 0 !important;
+  position: relative !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Gradient underline accent */
+.footer-brand .footer-logo::after,
+.footer-brand a.footer-logo::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 48px !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #008DDA, #41C9E2) !important;
+  border-radius: 3px !important;
+  display: block !important;
+}
+
+/* Hover effect */
+.footer-brand .footer-logo:hover {
+  color: #41C9E2 !important;
+  -webkit-text-fill-color: #41C9E2 !important;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .footer-brand .footer-logo,
+  .footer-brand a.footer-logo {
+    font-size: 24px !important;
+    letter-spacing: 3px !important;
+  }
+}
+

@@ -941,14 +941,78 @@
         }
 
     </style>
+
+<style id="footer-vcube-fix">
+/* FOOTER VCUBE TEXT — targets BOTH class names */
+footer .footer-brand .footer-logo-text,
+footer .footer-brand a.footer-logo-text,
+footer .footer-brand .footer-logo,
+footer .footer-brand a.footer-logo,
+.footer-brand .footer-logo-text,
+.footer-brand a.footer-logo-text,
+.footer-brand .footer-logo,
+.footer-brand a.footer-logo {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-weight: 900 !important;
+  font-size: 28px !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  text-decoration-color: transparent !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  display: inline-block !important;
+  font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+  margin: 0 0 16px 0 !important;
+  padding: 0 0 14px 0 !important;
+  position: relative !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+  border: none !important;
+  box-shadow: none !important;
+  visibility: visible !important;
+}
+
+/* Gradient underline */
+footer .footer-brand .footer-logo-text::after,
+footer .footer-brand .footer-logo::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 48px !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #008DDA, #41C9E2) !important;
+  border-radius: 3px !important;
+  display: block !important;
+}
+
+/* Hover */
+footer .footer-brand .footer-logo-text:hover,
+footer .footer-brand .footer-logo:hover {
+  color: #41C9E2 !important;
+  -webkit-text-fill-color: #41C9E2 !important;
+  text-decoration: none !important;
+}
+
+@media (max-width: 700px) {
+  footer .footer-brand .footer-logo-text,
+  footer .footer-brand .footer-logo {
+    font-size: 24px !important;
+    letter-spacing: 3px !important;
+  }
+}
+</style>
 </head>
 <body>
 
 <header id="navbar">
     <div class="nav-container">
-        <a href="index.html" class="logo">
-            <img src="assets/images/vcube-logo.png" alt="VCUBE Soft and Tech Limited">
-        </a>
+        <a href="index.html" class="logo"><img src="assets/images/vcube-logo.png" alt="VCUBE Logo" class="logo-img"></a>
         <nav>
             <ul>
                 <li><a href="#solutions">Solutions</a></li>
@@ -973,7 +1037,7 @@
 
 <section class="hero">
     <div class="hero-slides">
-            <div class="hero-slide active" style="background-image:url('assets/images/hero1.jpg');"></div>
+            <div class="hero-slide active" style="background-image:url('assets/images/hero5.jpg');"></div>
             <div class="hero-slide" style="background-image:url('assets/images/hero2.jpg');"></div>
             <div class="hero-slide" style="background-image:url('assets/images/hero3.jpg');"></div>
         </div><div class="hero-bg-grid"></div>
@@ -1217,8 +1281,8 @@
     <div class="footer-grid">
         <div class="footer-brand">
             <a href="index.html" class="footer-logo">
-                <img src="assets/images/vcube-logo.png" alt="VCUBE">
-            </a>
+    VCUBE
+</a>
             <p>Unified BPO &amp; digital solutions engineered for global scale.</p>
         </div>
         <div class="footer-col">
